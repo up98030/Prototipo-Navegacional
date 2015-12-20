@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	
+	<h:outputStylesheet library="css" name="style.css"  />
+	
+	<h:head>
+		<title>Configuración</title>
+	</h:head>
+	<h:body style="margin:20px;">		
+        <ui:composition template="templates/commonadmin.xhtml">		
+         <ui:define name="content">                    
+       <b:row style="margin-left:40%;">
+       	<h1>Configuración</h1>
+       </b:row>
+       <b:row>
+       <b:column span="5" style="margin:2%;">  	
+       	<h:form>         
+    <p:growl id="growl" showDetail="true" />
+ 	
+    <h3 style="margin-top: 0">Calificación Total:</h3>
+    <h:panelGrid columns="1" style="margin-bottom: 10px">
+        <p:inputText id="txt1" value="#{sliderView.number1}" />
+        <p:slider for="txt1" />
+    </h:panelGrid>
+ 
+    <h3>Porcentaje de Entrega</h3>
+    <h:panelGrid columns="1" style="margin-bottom: 10px">
+        <h:outputText id="output" value="" style="text-align:center;" />
+        <h:inputHidden id="txt2" value="#{sliderView.entrega}" />
+        <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="{value}%" />
+    </h:panelGrid>
+    
+    <h3>Porcentaje de Calidad</h3>
+    <h:panelGrid columns="1" style="margin-bottom: 10px">
+        <h:outputText id="output2" value="" />
+        <h:inputHidden id="txt3" value="#{sliderView.calidad}" />
+        <p:slider for="txt3" display="output" style="width: 200px" displayTemplate="{value}%" />
+    </h:panelGrid> 
+    </h:form> 
+ </b:column>     
+ <b:column span="5" style="margin:2%;">
+ <h:form>
+    <h3>Calificación Insuficiente</h3>
+    <h:panelGrid columns="1">
+        <h:outputText id="displayRange" value="Entre #{sliderView.insuficiente1} y #{sliderView.insuficiente2}" />
+        <p:slider for="txt6,txt7" display="displayRange" style="width: 400px" range="true" displayTemplate="Entre {min} y {max}" />
+    </h:panelGrid>
+    <h:inputHidden id="txt6" value="#{sliderView.insuficiente1}" />
+    <h:inputHidden id="txt7" value="#{sliderView.insuficiente2}" />
+    
+    <h3>Calificación Regular</h3>
+    <h:panelGrid columns="1">
+        <h:outputText id="displayRange2" value="Entre #{sliderView.regular1} y #{sliderView.regular2}" />
+        <p:slider for="txt8,txt9" display="displayRange2" style="width: 400px" range="true" displayTemplate="Entre {min} y {max}" />
+    </h:panelGrid>
+    <h:inputHidden id="txt8" value="#{sliderView.regular1}" />
+    <h:inputHidden id="txt9" value="#{sliderView.regular2}" />
+    
+    <h3>Calificación Buena</h3>
+    <h:panelGrid columns="1">
+        <h:outputText id="displayRange3" value="Entre #{sliderView.bueno1} y #{sliderView.bueno2}" />
+        <p:slider for="txt81,txt91" display="displayRange3" style="width: 400px" range="true" displayTemplate="Entre {min} y {max}" />
+    </h:panelGrid>
+    <h:inputHidden id="txt81" value="#{sliderView.bueno1}" />
+    <h:inputHidden id="txt91" value="#{sliderView.bueno2}" />
+    
+    <h3>Calificación Excelente</h3>
+    <h:panelGrid columns="1">
+        <h:outputText id="displayRange4" value="Entre #{sliderView.excelente1} y #{sliderView.excelente2}" />
+        <p:slider for="txt82,txt92" display="displayRange4" style="width: 400px" range="true" displayTemplate="Entre {min} y {max}" />
+    </h:panelGrid>
+    <h:inputHidden id="txt82" value="#{sliderView.excelente1}" />
+    <h:inputHidden id="txt92" value="#{sliderView.excelente2}" />
+   
+         
+</h:form>
+</b:column>
+       </b:row>
+       <b:row style="margin-left:40%; margin-top:5%;">
+       	   <p:commandButton value="Guardar" outcome="admin" />       
+       </b:row>
+       </ui:define>
+       </ui:composition>
+   	</h:body>
+</html>

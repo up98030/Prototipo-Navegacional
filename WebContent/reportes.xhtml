@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" >
+		
+	<h:head>
+		<title>UPS</title>
+	</h:head>
+	<h:body style="margin:20px;">	
+		<ui:composition template="templates/commonadmin.xhtml">		
+        	<ui:define name="content">		  	       
+		       <b:row>       	
+		       	<b:column span="12" style="margin-left:10px;">
+		       		<h2>Reportes</h2>
+		       		<b:panel style="width:90%;">
+		       			<h:form>
+						    <p:multiSelectListbox value="#{multiSelectView.selection}" effect="slide" header="Módulo" showHeaders="true">
+						        <f:selectItems value="#{multiSelectView.categories}" />
+						    </p:multiSelectListbox>
+						 
+						    <p:commandButton value="Consultar" action="reporte" icon="ui-icon-check" style="display:block;margin:10px 0" />
+						 
+						    <h:outputText id="out" value="Consulta: #{multiSelectView.selection}" style="display:block" />
+						</h:form>
+		       		</b:panel>
+		       	</b:column>
+		       </b:row>
+		   	</ui:define>
+		  </ui:composition>
+   	</h:body>
+</html>

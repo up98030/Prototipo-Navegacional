@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+			
+	<h:head>
+		<title>UPS</title>
+	</h:head>
+	<h:body>
+		<ui:composition template="templates/commonAdmin.xhtml">
+			<ui:define name="content" style="margin:2%;">				    			       
+			       <b:row styleClass="submenuPrincipal">
+			       		<h2>Cronograma Período 48</h2>
+			       		<b:panel>			       										
+							<h:form>
+							    <p:commandButton value="Descargar" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+							        <p:fileDownload value="#{fileDownloadView.file}" />
+							    </p:commandButton>
+							</h:form>
+							 
+							<script type="text/javascript">
+							function start() {
+							    PF('statusDialog').show();
+							}
+							 
+							function stop() {
+							    PF('statusDialog').hide();
+							}
+							</script>
+			       		</b:panel>
+			       </b:row>
+			       <b:row sytle="margin-left:2%; !improtant">
+			       <b:column span="1"></b:column>
+			       <b:column span="10">
+			       	<h:form>               
+			    <h3 style="margin-top: 0">Observaciones</h3>    
+			    <p:inputTextarea rows="10" cols="50" queryDelay="750" minQueryLength="4" />
+			        <br />
+			        <h:panelGrid columns="2" cellpadding="5">
+			        <h:outputText value="Calificación:" />
+			        <p:rating value="#{ratingView.rating1}" />        
+			         
+			        </h:panelGrid>
+			          <h:panelGrid columns="1" style="margin-bottom: 10px">
+				        <p:inputText id="txt1" value="#{sliderView.number1}" />
+				        <p:slider for="txt1" />
+				    </h:panelGrid>    
+				    <div>
+				    <h:outputText value="Reactivar después de calificar: " style="margin-right:10px;" /><p:inputSwitch value="sí" />
+				       </div>
+				       <div>
+			       <p:commandButton value="Enviar" style="margin:5px" />
+			  </div>
+					</h:form>
+					</b:column>
+			       </b:row>
+			</ui:define>
+		</ui:composition>
+   	</h:body>
+</html>

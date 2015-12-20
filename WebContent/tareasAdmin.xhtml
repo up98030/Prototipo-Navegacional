@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	
+	<h:outputStylesheet library="css" name="style.css"  />
+	
+	<h:head>
+		<title>UPS</title>
+	</h:head>
+	<h:body>	
+	 <ui:composition template="templates/commonAdmin.xhtml">		
+     <ui:define name="content">	             
+       <b:row style="margin-left:40%;">
+       	<h:form>
+       		<p:commandButton value="Tarea Nueva" action="tareanueva" style="margin-top:10px; padding:10px;" />
+       	</h:form>      
+       </b:row>
+       <b:row styleClass="">
+       	<b:column style="margin-left:10px;">
+       		<h2>Tareas</h2>
+       		<b:panel style="width:90%;">
+       			<ul>
+       				<h3>Ingenieria de Software</h3>
+       				<li style="text-align:left;"><h:link value="Cronograma Ingeniería de Software" outcome="calificar" /></li>
+       				<h3>Redes II</h3>
+       				<li style="text-align:left;"><h:link value="Cronograma Redes II" outcome="calificar" /></li>
+       				<h3>Administrativo</h3>
+       				<li style="text-align:left;"><h:link value="Reunión Docentes" outcome="tarea" /></li>
+       				<li style="text-align:left;"><h:link value="Calendario Academico" outcome="tarea" /></li>
+       			</ul>
+       		</b:panel>
+       	</b:column>      
+       </b:row>
+       </ui:define>
+       </ui:composition>
+   	</h:body>
+</html>
